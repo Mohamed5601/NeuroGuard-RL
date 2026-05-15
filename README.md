@@ -1,23 +1,40 @@
 # NeuroGuard-RL
 
-NeuroGuard-RL is a personal research project built to explore reinforcement learning in crypto trading, with a focus on risk controls, execution safety, and adversarial market behavior.
+NeuroGuard-RL is a personal research project built to explore reinforcement learning in crypto spot trading.
 
-The idea is simple: the model should not be trusted blindly.  
-The agent proposes actions, but the final decision still goes through a separate validation layer that checks position sizing, drawdown limits, and basic execution constraints before anything is sent to the exchange.
+The main idea is simple: the model can suggest an action, but it should not be trusted blindly. Before anything reaches execution, the decision goes through a separate risk layer that checks basic constraints like position sizing, drawdown limits, and other safety rules.
 
-The project uses a custom Gymnasium environment to simulate spot trading conditions like slippage, latency, and liquidity effects. PPO from Stable-Baselines3 is used for training, with the training loop, preprocessing pipeline, and execution layer kept separate so the system is easier to test and reason about.
+I built this project to study a few things at the same time:
+- how RL behaves in noisy market conditions
+- how to keep model output separate from execution logic
+- how to add simple invariant checks around trading decisions
+- how to make the whole system easier to test and reason about
 
-## What is in the repo
+## What is inside
 
-- `data/` for historical market data and preprocessing
-- `gym_env/` for the custom trading environment
+- `data/` for historical market data, preprocessing, and feature extraction
+- `gym_env/` for the custom Gymnasium trading environment
 - `models/` for PPO training and saved artifacts
-- `executor/` for exchange interaction and risk checks
+- `executor/` for exchange connection, order handling, and risk checks
 - test scripts for data validation, simulation, and shadow execution
 
-## Why I built it
+## How it works
 
-I wanted a framework that treats trading decisions the same way I think about untrusted inputs in security work: the model can suggest something, but it should never get direct control without checks.
+The project models spot trading as a Markov Decision Process and uses PPO from Stable-Baselines3 to train an agent inside a custom environment.
+
+That environment tries to stay close to real conditions by including things like:
+- fees
+- slippage
+- latency
+- liquidity constraints
+
+The training code, the preprocessing pipeline, and the execution layer are kept separate on purpose. I found this easier to debug, easier to test, and less likely to turn into a mess later.
+
+## Why I made it this way
+
+Coming from a security background, I like systems that do not trust inputs too early.
+
+In this case, the model is just another input source. It can help, but it should never get direct control over execution without checks.
 
 ## Tech stack
 
@@ -30,4 +47,4 @@ I wanted a framework that treats trading decisions the same way I think about un
 
 ## Note
 
-This is a research project, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
+This is a research repo, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
