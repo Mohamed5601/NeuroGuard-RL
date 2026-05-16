@@ -65,6 +65,4 @@ The idea would be to keep execution and risk validation isolated while using lan
 
 For now, the focus of this repository is still on the lower-level execution and reinforcement learning infrastructure.
 
-## Note
 
-This is a research repo, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
