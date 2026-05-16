@@ -6,8 +6,8 @@ from executor.risk_engine import RiskEngine
 from executor.binance_connector import BinanceConnector
 
 # إعدادات بسيطة للتجربة
-TRADING_AMOUNT_USDT = 100  # قيمة الصفقة الوهمية
-STARTING_BALANCE = 1000    # رصيد البداية الوهمي
+TRADING_AMOUNT_USDT = 500  # قيمة الصفقة الوهمية
+STARTING_BALANCE = 5000    # رصيد البداية الوهمي
 
 def run_bot():
     print("🤖 --- Starting Crypto Bot (Mock Mode) ---")
