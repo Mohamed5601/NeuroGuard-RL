@@ -53,6 +53,18 @@ Some parts of the codebase were written quickly during testing and research iter
 
 The goal of the project was mainly to experiment with reinforcement learning workflows, execution safety, and modular trading system design rather than build a production-ready platform.
 
+## Future Ideas
+
+One direction I would like to explore later is combining the current execution framework with a higher-level LLM-based system for market interpretation and strategy adaptation.
+
+The idea would be to keep execution and risk validation isolated while using language models for slower decision-making tasks like:
+- market regime analysis
+- news interpretation
+- sentiment monitoring
+- dynamic strategy adjustments
+
+For now, the focus of this repository is still on the lower-level execution and reinforcement learning infrastructure.
+
 ## Note
 
 This is a research repo, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
