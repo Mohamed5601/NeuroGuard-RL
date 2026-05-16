@@ -45,11 +45,6 @@ In this case, the model is just another input source. It can help, but it should
 - pyarrow
 - ccxt
 
-## Note
-
-This is a research repo, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
-
-
 ## Project Status
 
 This repository is still experimental and under active development.
@@ -57,3 +52,7 @@ This repository is still experimental and under active development.
 Some parts of the codebase were written quickly during testing and research iterations, so the structure and comments are not fully standardized yet.
 
 The goal of the project was mainly to experiment with reinforcement learning workflows, execution safety, and modular trading system design rather than build a production-ready platform.
+
+## Note
+
+This is a research repo, not a production trading system. It is meant for learning, experimentation, and portfolio presentation.
